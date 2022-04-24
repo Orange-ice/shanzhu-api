@@ -1,6 +1,6 @@
 class Api::V1::ItemsController < ApplicationController
   def create
-    item = Item.new amount: 1
+    item = Item.new amount: params[:amount]
     if item.save
       render json: { resource: item }, status: 201
     else
@@ -9,7 +9,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def index
-    items = Item.page(params[:page]).per(5)
+    items = Item.page(params[:page])
     render json: {
       resources: items, pager: {
         current_page: params[:page],
