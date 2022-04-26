@@ -25,3 +25,10 @@ bin/rails db:migrate
 ```bash
 bin/rails s
 ```
+
+### Deploy
+
+> Before deployment, ensure that there is a Docker network with network1
+> if not, run `docker network create network1`
+
+one-button deployment:  `bin/pack_for_remote.sh` 
